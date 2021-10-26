@@ -1,37 +1,23 @@
-/*Student’s Name Alisha Irshad, StudentID 301147340, and Date 5.10.2021*/
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('home', { title: 'Home',
- });
-});
-/* GET home page. */
-router.get('/home', function(req, res, next) {
-  res.render('home', { title: 'Home',
- });
-});
-/* GET about page. */
-router.get('/about', function(req, res, next) {
-  res.render('about', { title: 'About',
- });
-});
-/* GET projects page. */
-router.get('/projects', function(req, res, next) {
-  res.render('projects', { title: 'Projects',
- });
-});
-/* GET services page. */
-router.get('/services', function(req, res, next) {
-  res.render('services', { title: 'Services',
- });
-});
-/* GET contact page. */
-router.get('/contact', function(req, res, next) {
-  res.render('contactme', { title: 'Contact',
- });
-});
+let indexController = require('../controllers/index')
 
+/* GET home page. */
+router.get('/', indexController.displayHomePage);
+/* GET about me page. */
+router.get('/about', indexController.displayAboutmePage);
+/* GET projects page. */
+router.get('/projects', indexController.displayProjectsPage);
+/* GET services page. */
+router.get('/services', indexController.displayServicesPage);
+/* GET contact me page. */
+router.get('/contactme', indexController.displayContactmePage);
+/* GET Route for displaying the Login page. */
+router.get('/login', indexController.displalyLoginPage);
+/* POST Route for processing the Login page. */
+router.post('/login', indexController.processLoginPage);
+/* GET to perform perform UserLogout. */
+router.get('/logout', indexController.performLogout);
 
 module.exports = router;
